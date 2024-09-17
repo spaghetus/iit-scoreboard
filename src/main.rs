@@ -68,9 +68,8 @@ async fn main_() {
     info!("Processing events from {from} to {to}");
 
     let mut channel = file
-        .map(|file| {
-            Channel::read_from(BufReader::new(File::open(file).expect("Read input file")))
-                .expect("Read saved feed")
+        .and_then(|file| {
+            Channel::read_from(BufReader::new(File::open(file).expect("Read input file"))).ok()
         })
         .unwrap_or_default();
 
