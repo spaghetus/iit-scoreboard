@@ -1,9 +1,9 @@
 <table>
-    <th>
-    <td>Location</td>
-    <td>Fire alarm count</td>
-    <td>Entrapment count</td>
-    </th>
+    <thead>
+        <td>Location</td>
+        <td>Fire alarm count</td>
+        <td>Entrapment count</td>
+    </thead>
     {% for entry in entries %}
     <tr>
         <td max_fire={{ entry.max_fire }}

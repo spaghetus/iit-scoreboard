@@ -27,6 +27,13 @@ fn main() {
     let max_entrapments = leaderboard.iter().map(|l| l.entrapments).max().unwrap_or(0);
     let entries: Vec<_> = leaderboard
         .into_iter()
+        .filter(
+            |LeaderboardEntry {
+                 location,
+                 fire_alarms,
+                 entrapments,
+             }| fire_alarms + entrapments > 0,
+        )
         .map(
             |LeaderboardEntry {
                  location,
